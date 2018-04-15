@@ -2,11 +2,13 @@
 *  1. FONTS
 *  2. VARIABLES
 *  3. MAIN STYLES
-*  4. MAIN NAVIGATION
-*  5. INTRO
-*  6. EMPTY SECTIONS
-*  7. TESTIMONIALS
-*  8. FOOTER
+*  4. MAIN HEADER
+*  5. BENEFITS
+*  6. OFFER
+*  7. PORTFOLIO 
+*  8. ABOUT
+*  9. FOOTER
+*  10. RWD
 */
 
 /* FONTS */
@@ -45,6 +47,15 @@ body {
   font-family: 'Tajawal', sans-serif;
 }
 
+a,
+a:hover,
+a:active,
+a:link,
+a:visited {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
 .main__button {
   width: 205px;
   height: 50px;
@@ -55,7 +66,9 @@ body {
   cursor: pointer;
 }
 
-.main__button a {
+.main__button a,
+.facebook__button a,
+.linkedin__button a {
   color: var(--white);
   font-size: var(--font-size-2);
   font-weight: 400;
@@ -65,6 +78,28 @@ body {
 .main__button a:hover {
   color: lightgray;
   text-decoration: none;
+}
+
+.facebook__button {
+  display: block;
+  margin: 0 auto;
+  width: 205px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3B5998;
+  cursor: pointer;
+}
+
+.linkedin__button {
+  display: block;
+  margin: 0 auto;
+  width: 205px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #0077b5;
+  cursor: pointer;
 }
 
 /* MAIN END */
@@ -82,14 +117,16 @@ nav.navbar {
   padding-top: 25px;
 }
 
-.navbar-brand {
+.navbar-brand,
+.footer__logo {
   color: var(--black);
   font-size: var(--font-size-4);
   font-weight: 700;
   line-height: 24px;
 }
 
-.navbar-brand span {
+.navbar-brand span,
+.footer__logo span {
   font-weight: 300;
 }
 
@@ -101,9 +138,14 @@ nav.navbar {
   margin: 0 5px 0 5px;
 }
 
+.nav-item {
+  text-align: center;
+  max-width: 91px;
+}
+
 .nav-item.active {
   border-radius: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--black);
 }
 
 .nav-item.active:hover {
@@ -112,6 +154,10 @@ nav.navbar {
 
 .nav-link:hover {
   color: var(--white);
+}
+
+.navbar-light .navbar-nav a.nav-link {
+  color: var(--black);
 }
 
 .intro {
@@ -222,4 +268,354 @@ nav.navbar {
   font-weight: 300;
   line-height: 30px;
 }
+
+.offer__img__wrapper {
+  min-width: 140px;
+}
+
+.offer__img {
+  margin: 0 auto;
+}
 /* OFFER END */
+
+/* PORTFOLIO */
+.projects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project__link {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.project__link::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "Watch more";
+  text-align: center;
+  font-weight: 700;
+  padding-top: calc(100% - 65%);
+  color: var(--black);
+  display: block;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(258, 258, 258, 0.6);
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+}
+
+.project__link:hover::after {
+  opacity: 1;
+}
+
+.project {
+  position: relative;
+}
+
+.project__button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+
+.project__button .main__button {
+  color: white;
+}
+
+.project__button .main__button:hover {
+  color: lightgray;
+  opacity: 1;
+}
+
+/* overwrite slick.js styles  */
+.slick__prev,
+.slick__next {
+  position: absolute;
+  z-index: 9999;
+}
+
+.slick__prev {
+  height: 58px;
+  width: 58px;
+  top: 50%; 
+  left: 0;
+  transform: translate(0, -50%);
+}
+
+.slick__next {
+  height: 58px;
+  width: 58px;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+}
+
+.slick-slide a {
+  outline: none;
+}
+/* PORTFOLIO END */
+
+/* ABOUT */
+.about {
+  background: url("../assets/img/about_bg.png");
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  color: var(--white);
+  padding: 115px 0;
+}
+
+.about__header {
+  color: var(--white);
+  font-size: var(--font-size-5);
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 35px;
+}
+
+.about__text {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 699px;
+  color: var(--text-gray);
+  font-size: var(--font-size-2);
+  font-weight: 300;
+  line-height: 30px;
+  margin-bottom: 120px;
+}
+
+.person__image {
+  margin-bottom: 30px;
+}
+
+.person__name {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.person__text { 
+  color: var(--text-gray);
+  font-size: var(--font-size-2);
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.about .main__button {
+  margin-top: 110px;
+}
+
+.about .main__button:hover {
+  color: lightgray;
+}
+/* ABOUT END */
+
+/* FOOTER  */
+.footer {
+  padding: 20px 0;
+}
+
+.footer__info {
+  float: right;
+  font-size: var(--font-size-2);
+}
+/* FOOTER END */
+
+/* MODALS */
+.login__modal,
+.register__modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  border-radius: 15px;
+  padding: 10px 30px;
+  border: 2px solid #49007c;
+  min-width: 300px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login__form > * {
+  flex: 1;
+}
+
+.login__form span {
+  margin-bottom: 20px;
+}
+
+.modal__close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background: none;
+  border: none;
+}
+
+.login__heading,
+.register__heading {
+  margin: 20px 0;
+}
+
+.login__input,
+.register__input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #49007c;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.login__form label {
+  text-align: left;
+}
+
+.login__form button {
+  margin-bottom: 10px;
+}
+
+.register__modal {
+  display: block;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+input[type="file"] {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  margin-bottom: 0;
+  z-index: 9;
+}
+
+label[for="picture"] {
+  position: relative;
+  padding: 10px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #49007c;
+  display: inline-block;
+  color: var(--black);
+  cursor: pointer;
+}
+
+/* align placeholders */
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+}
+
+/* MODALS END */
+
+
+/* RWD */
+@media (max-width: 992px) {
+  .intro__container {
+    margin-top: 110px;
+    margin-bottom: 110px;
+  }
+
+  .intro__header {
+    line-height: 54px;
+  }
+
+  .mouse__container {
+    margin-bottom: 50px;
+  }
+
+  .offer__item {
+    max-width: 550px;
+  }
+
+  .about__text {
+    margin-bottom: 60px;
+  }
+
+  .about .main__button {
+    margin-top: 55px;
+  }
+
+  .person__text {
+    margin-bottom: 20px;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer__info {
+    float: none;
+  }
+
+  @media (max-width: 767px) {
+    .benefit {
+      padding: 75px 5px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    .offer__item {
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .offer__img {
+      margin-bottom: 20px;
+    }
+    
+    .footer__logo {
+      line-height: 42px;
+    }
+
+    .offer__context__wrapper {
+      margin-left: 0;
+      padding: 0 10px;
+      text-align: center;
+    }
+
+    .login__modal {
+      min-width: 0;
+    }
+  }
+}
+/* RWD END */
