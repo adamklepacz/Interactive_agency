@@ -120,6 +120,21 @@ a .main__button:hover {
   cursor: pointer;
 }
 
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay--open {
+  display: block;
+}
+
 /* MAIN END */
 
 /* MAIN HEADER */
@@ -497,7 +512,13 @@ nav.navbar {
   border-radius: 15px;
   padding: 10px 30px;
   border: 2px solid #49007c;
+  text-align: center;
   min-width: 300px;
+  z-index: 999;
+}
+
+.modal--open {
+  display: block;
 }
 
 .login__form {
@@ -616,35 +637,45 @@ label[for="register__picture"] {
     margin-top: 110px;
     margin-bottom: 110px;
   }
+
   .intro__header {
     line-height: 54px;
   }
+
   .mouse__container {
     margin-bottom: 50px;
   }
+
   .offer__item {
     max-width: 550px;
   }
+
   .about__text {
     margin-bottom: 60px;
   }
+
   .about .main__button {
     margin-top: 55px;
   }
+
   .person__text {
     margin-bottom: 20px;
   }
+
   .footer {
     text-align: center;
   }
+
   .footer__info {
     float: none;
   }
+
   @media (max-width: 767px) {
     .benefit {
       padding: 75px 5px;
     }
   }
+
   @media (max-width: 425px) {
     .offer__item {
       -webkit-box-orient: vertical;
@@ -653,17 +684,21 @@ label[for="register__picture"] {
       flex-direction: column;
       margin-bottom: 20px;
     }
+
     .offer__img {
       margin-bottom: 20px;
     }
+
     .footer__logo {
       line-height: 42px;
     }
+
     .offer__context__wrapper {
       margin-left: 0;
       padding: 0 10px;
       text-align: center;
     }
+
     .login__modal {
       min-width: 0;
     }

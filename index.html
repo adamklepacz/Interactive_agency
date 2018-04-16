@@ -39,10 +39,10 @@
               <a class="nav-link" href="#offer">Offer</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" id="nav__login"  href="#">Login</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" id="nav__register" href="#">Register</a>
             </li>
           </ul>
         </div>
@@ -252,16 +252,16 @@
     </div>
   </footer>
 
-  <div class="login__modal">
+  <div class="login__modal" id="login__modal">
     <form class="login__form">
-      <button class="modal__close">x</button>
+      <button class="modal__close" type="button" id="login__close">x</button>
 
       <h4 class="login__heading">Log in</h4>
       <label for="login__email">Email
-        <input id="login__email" name="email" type="email" class="login__input login__email" placeholder="john.doe@example.com" required>
+        <input id="login__email" name="email" type="email" class="login__input login__email" placeholder="john.doe@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
       </label>
       <label for="login__password">Password
-        <input id="login__password" name="password" type="password" class="login__input login__password" required>
+        <input id="login__password" name="password" type="password" class="login__input login__password" minlength="5" maxlength="20" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
       </label>
 
       <button class="main__button" type="submit">
@@ -285,40 +285,40 @@
     </form>
   </div>
 
-  <div class="register__modal">
-    <form class="register__form">
-      <button class="modal__close">x</button>
+  <div class="register__modal" id="register__modal">
+    <form class="register__form" id="register__form">
+      <button class="modal__close" type="button" id="register__close">x</button>
 
       <h4 class="register__heading">Register</h4>
       <label for="register__email">Email
-        <input id="register__email" name="email" type="email" class="register__input register__email" placeholder="john.doe@example.com"
-          required>
+        <input id="register__email" name="email" type="email" class="register__input register__email" placeholder="john.doe@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
       </label>
       <label for="register__password">Password
-        <input id="register__password" name="password" type="password" class="register__input login__password" required>
+        <input id="register__password" name="password" type="password" class="register__input login__password" minlength="5" maxlength="20" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please use at least one uppercase character, one lowercase character and one number" required>
       </label>
       <label for="register__phone">Phone
-        <input id="register__phone" name="phone" type="tel" class="register__input register__phone" placeholder="+48 660 770 880"
-          required>
+        <input id="register__phone" name="phone" type="tel" class="register__input register__phone" placeholder="+48 660 770 880" minlength="5" maxlength="20" pattern="^[0-9-+s()]*$" title="Please use only numbers from 0-9, +, -." required>
       </label>
       <label for="register__ref__code">Referral Code
-        <input id="register__ref__code" name="ref__code" type="number" class="register__input register__ref__code" placeholder="12346789">
+        <input id="register__ref__code" name="ref__code" type="number" class="register__input register__ref__code" placeholder="12346789" pattern="[0-9]">
       </label>
       <label for="register__picture">Upload picture
         <img src="assets/img/upload__icon.png" alt="upload__icon">
         <input id="register__picture" name="picture" type="file" class="register__input register__picture">
       </label>
 
-      <button class="main__button" id="register__buton" type="submit">
+      <button class="main__button" type="submit">
         <span>Register</span>
       </button>
     </form>
   </div>
+  <div class="overlay" id="overlay"></div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" crossorigin="anonymous" async></script>
 
   <script src="js/slick.min.js" async></script>
+  <script src="js/slick_custom.js" async></script>
   <script src="js/app.js" async></script>
 </body>
 
