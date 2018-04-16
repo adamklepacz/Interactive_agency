@@ -492,10 +492,6 @@ nav.navbar {
   margin-bottom: 10px;
 }
 
-.register__modal {
-  display: block;
-}
-
 .register__form {
   display: flex;
   flex-direction: column;
@@ -619,3 +615,12 @@ label[for="picture"] {
   }
 }
 /* RWD END */
+
+
+/* .login__modal {
+  display: block;
+} */
+
+.register__modal {
+  display: block;
+}
