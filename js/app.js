@@ -46,7 +46,7 @@
    * or we can build our own validation in JavaScript if needed
    */
   function formSubmit() {
-    renderHTML(registerModal, '<h4 class="register__heading">Register</h4><p>Registration complete, check your email for activation link!</p>');
+    renderHTML(registerModal, '<h4 class="register__heading">Register</h4><p>Registration complete, check your email for activation link!</p><p>Click anywhere to close this message.</p>');
 
     registerForm.reset();
   }
@@ -69,6 +69,7 @@
       registerModal.classList.remove('modal--open');
       loginModal.classList.remove('modal--open');
     }
+    
   }
 
 
