@@ -1,21 +1,25 @@
-(function() {
-  let register = document.getElementById('nav__register');
-  let login = document.getElementById('nav__login');
-  let registerModal = document.getElementById('register__modal');
-  let loginModal = document.getElementById('login__modal');
-  let closeModalButtons = document.getElementsByClassName('modal__close');
-  let overlay = document.getElementById('overlay');
-  let registerForm = document.getElementById('register__form');
-  
-  function triggerModal(e) {
-    let clickedElement = e.target.attributes.id.value;
+(function () {
 
-    if(overlay.classList.contains('overlay--open')) {
+  const registerLink = document.getElementById('nav__register');
+  const loginLink = document.getElementById('nav__login');
+  const registerModal = document.getElementById('register__modal');
+  const loginModal = document.getElementById('login__modal');
+  const closeModalButtons = document.getElementsByClassName('modal__close');
+  const overlay = document.getElementById('overlay');
+  const registerForm = document.getElementById('register__form');
+  const loginForm = document.getElementById('login__form');
+
+  function triggerModal(e) {
+    const clickedElement = e.target.attributes.id.value;
+
+    // show/hide overlay
+    if (overlay.classList.contains('overlay--open')) {
       overlay.classList.remove('overlay--open');
     } else {
       overlay.classList.add('overlay--open');
     }
-    
+
+    // open/close the desired modal window
     switch (clickedElement) {
       case 'nav__login':
         loginModal.classList.add('modal--open');
@@ -31,7 +35,7 @@
       case 'register__close':
         registerModal.classList.remove('modal--open');
         break;
-    
+
       default:
         break;
     }
@@ -42,7 +46,9 @@
    * or we can build our own validation in JavaScript if needed
    */
   function formSubmit() {
-    renderHTML(registerModal, '<h4 class="register__heading">Register</h4><p>Registration complete, check your email for activation link</p>');
+    renderHTML(registerModal, '<h4 class="register__heading">Register</h4><p>Registration complete, check your email for activation link!</p>');
+
+    registerForm.reset();
   }
 
   /** 
@@ -53,14 +59,36 @@
     element.innerHTML = html;
   }
 
+  // Hide registration confirmation after form submission
+  function hideConfirmation(e) {
+    const clickedElement = e.target.attributes.id.value;
 
-  register.addEventListener('click', triggerModal);
-  login.addEventListener('click', triggerModal);
+    // hide after delay
+    setTimeout(function () {
+      overlay.classList.remove('overlay--open');
+      registerModal.classList.remove('modal--open');
+    }, 3000)
+    
+
+    // hide after overlay was clicked
+    if (clickedElement === "overlay") {
+      overlay.classList.remove('overlay--open');
+      registerModal.classList.remove('modal--open');
+      loginModal.classList.remove('modal--open');
+    }
+  }
+
+
+  // event listeners
+  registerLink.addEventListener('click', triggerModal);
+  loginLink.addEventListener('click', triggerModal);
   registerForm.addEventListener('submit', formSubmit);
- 
+  registerForm.addEventListener('submit', hideConfirmation);
+  loginForm.addEventListener('submit', hideConfirmation);
+  overlay.addEventListener('click', hideConfirmation);
 
   // add event listener to HTMLCollection
-  for(let i = 0; i < closeModalButtons.length; i++) {
+  for (let i = 0; i < closeModalButtons.length; i++) {
     closeModalButtons[i].addEventListener('click', triggerModal);
   }
 
