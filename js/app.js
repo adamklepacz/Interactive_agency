@@ -59,16 +59,9 @@
     element.innerHTML = html;
   }
 
-  // Hide registration confirmation after form submission
+  // Hide registration confirmation
   function hideConfirmation(e) {
     const clickedElement = e.target.attributes.id.value;
-
-    // hide after delay
-    setTimeout(function () {
-      overlay.classList.remove('overlay--open');
-      registerModal.classList.remove('modal--open');
-    }, 3000)
-    
 
     // hide after overlay was clicked
     if (clickedElement === "overlay") {
