@@ -286,9 +286,9 @@
 
     </form>
   </div>
-
+  
   <div class="register__modal" id="register__modal">
-    <form class="register__form" id="register__form">
+    <form class="register__form" id="register__form" method="POST" action="https://foodsi-stage.applover.pl/api/v1/auth" >
       <button class="modal__close" type="button" id="register__close">x</button>
 
       <h4 class="register__heading">Register</h4>
@@ -306,7 +306,7 @@
           minlength="5" maxlength="20" pattern="^[0-9-+s()]*$" title="Please use only numbers from 0-9, +, -." required>
       </label>
       <label for="register__ref__code">Referral Code
-        <input id="register__ref__code" name="ref__code" type="text" class="register__input register__ref__code" placeholder="12346789"
+        <input id="register__ref__code" name="referral_code" type="text" class="register__input register__ref__code" placeholder="12346789"
           pattern="[0-9]">
       </label>
       <label for="register__picture">Upload picture
